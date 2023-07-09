@@ -1,17 +1,41 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import shortid from "shortid";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   const dispath = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <>
-      <div>
+      <div style={{ display: "flex" }}>
         <h2>My Todo List</h2>
+        <button
+          style={{
+            marginTop: "20px",
+            marginLeft: "10px",
+            width: "100px",
+            height: "30px",
+          }}
+          onClick={() => navigate("/select")}
+        >
+          Select Page
+        </button>
+        <button
+          style={{
+            marginTop: "20px",
+            marginLeft: "10px",
+            width: "100px",
+            height: "30px",
+          }}
+          onClick={() => navigate("/dark")}
+        >
+          Dark Mode
+        </button>
       </div>
       <form
         onSubmit={(e) => {

@@ -24,11 +24,13 @@ const List = () => {
               >
                 <Link to={`/${todo.id}`}>상세페이지</Link>
                 <br />
-                {todo.id}
+                <span>shortID : {todo.id}</span>
                 <br />
-                {todo.title}
+                <span>제목 : {todo.title}</span>
                 <br />
-                {todo.content} <br />
+                <span>내용 : {todo.body}</span>
+                <br />
+                <span>좋아요 : {todo.like} </span>
                 <br />
                 <button
                   onClick={() => {
@@ -50,6 +52,16 @@ const List = () => {
                 >
                   삭제
                 </button>
+                <button
+                  onClick={() => {
+                    dispath({
+                      type: "LIKE_TODO",
+                      payload: todo.id,
+                    });
+                  }}
+                >
+                  좋아요
+                </button>
               </div>
             );
           })}
@@ -66,12 +78,15 @@ const List = () => {
               >
                 <Link to={`/${todo.id}`}>상세페이지</Link>
                 <br />
-                {todo.id}
+                <span>shortID : {todo.id}</span>
                 <br />
-                {todo.title}
+                <span>제목 : {todo.title}</span>
                 <br />
-                {todo.content} <br />
-                {todo.isDone.toString()}
+                <span>내용 : {todo.body}</span>
+                <br />
+                <span>좋아요 : {todo.like} </span>
+                <br />
+                {/* {todo.isDone.toString()} */}
                 <br />
                 <button
                   onClick={() => {
@@ -92,6 +107,16 @@ const List = () => {
                   }}
                 >
                   삭제
+                </button>
+                <button
+                  onClick={() => {
+                    dispath({
+                      type: "LIKE_TODO",
+                      payload: todo.id,
+                    });
+                  }}
+                >
+                  좋아요
                 </button>
               </div>
             );

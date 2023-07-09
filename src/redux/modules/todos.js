@@ -5,24 +5,28 @@ const initialState = [
     id: shortid.generate(),
     title: "리액트1",
     body: "리액트 공부하기1",
+    like: 0,
     isDone: false,
   },
   {
     id: shortid.generate(),
     title: "리액트2",
     body: "리액트 공부하기2",
+    like: 0,
     isDone: true,
   },
   {
     id: shortid.generate(),
     title: "리액트3",
     body: "리액트 공부하기3",
+    like: 0,
     isDone: false,
   },
   {
     id: shortid.generate(),
     title: "리액트4",
     body: "리액트 공부하기4",
+    like: 0,
     isDone: true,
   },
 ];
@@ -44,7 +48,14 @@ const todos = (state = initialState, action) => {
           return todo;
         }
       });
-
+    case "LIKE_TODO":
+      return state.map((todo) => {
+        if (todo.id === action.payload) {
+          return { ...todo, like: todo.like + 1 };
+        } else {
+          return todo;
+        }
+      });
     default:
       return state;
   }

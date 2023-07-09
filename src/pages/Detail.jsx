@@ -13,18 +13,19 @@ const Detail = () => {
       <div
         style={{
           border: "1px solid gray",
-          width: "120px",
-          height: "120px",
-          textAlign: "center",
+          width: "200px",
+          height: "150px",
           padding: "10px",
           margin: "10px",
         }}
       >
-        {todo.id}
+        <span>shortID : {todo.id}</span>
         <br />
-        {todo.title}
+        <span>제목 : {todo.title}</span>
         <br />
-        {todo.content}
+        <span>내용 : {todo.body}</span>
+        <br />
+        <span>좋아요 : {todo.like} </span>
         <br />
         <button onClick={() => navigate("/")}>뒤로가기</button>
       </div>
